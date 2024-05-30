@@ -1,0 +1,41 @@
+{% extends 'design/main1.html' %}
+
+{% block title %}Employee Records{% endblock title %}
+{% block content %}
+<div class="col-md-12">
+    
+    <div class="table-responsive">
+        <h2>User Data</h2>
+        <br>
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+    <thead>
+            <th><input type="checkbox" id="checkall" /></th>
+            <th>UserID</th>
+            <th>UserName</th>
+            <th>Address</th>
+            <th>DOB</th>
+            <th>Phone Number</th>
+            <th>Edit</th>
+            <th>Delete</th>
+    </thead>
+    <tbody>
+        {% for d in db %}
+       
+            <tr>
+            <td><input type="checkbox" class="checkthis" /></td> 
+            <td>{{d.user.id}}</td>
+            <td>{{d.user.username}}</td>
+            <td>{{d.add}}</td>
+            <td>{{d.dob}}</td>
+            <td>{{d.phone_no}}</td> 
+            <td><a href="/edituser/{{d.user.id}}" class="btn btn-primary">Edit</a></td>
+            <td><a href="/deluser/{{d.user.id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>   
+      
+    </table>
+    <a href="/show" class="btn btn-primary">Product Database</a>
+    </div>
+</div>
+{% endblock content %}

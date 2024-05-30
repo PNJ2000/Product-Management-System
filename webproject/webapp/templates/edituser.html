@@ -1,0 +1,48 @@
+{% extends "design/main1.html" %}
+  
+{% block title %}{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form action="/updateuser/{{us.id}}"  method="POST" class="post_form">
+    {% csrf_token %}
+    <div class="container">   
+        <div class="col-12">  
+            <h3>Update Data</h3>  
+        </div>
+        <div class="mb-3"> 
+            <label>User ID:</label>  
+            <input type="text" name="id"  class="form-control" value="{{ us.id }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" value="{{us.username}}"/>
+        </div>
+    
+        <div class="mb-3"> 
+                <label>Password</label>
+                <input type="text" name="password" class="form-control" value="{{us.password}}"/>
+        </div>
+    
+        <div class="mb-3"> 
+            <label>Address</label>
+            <input type="text" name="add" class="form-control" value="{{us.customuser.add}}" >
+        </div>
+
+        <div class="mb-3"> 
+            <label>DOB</label>
+            <input type="text" name="dob" class="form-control" value="{{us.customuser.dob}}" >
+        </div>
+    
+        <div class="mb-3"> 
+            <label>Phone Number</label>
+            <input type="tel" name="phone_no" class="form-control" value="{{us.customuser.phone_no}}">
+        </div>
+
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div>
+
+    </form>
+</div>
+{% endblock content %}  

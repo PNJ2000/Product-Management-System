@@ -1,0 +1,35 @@
+{% extends "design/main1.html" %}
+  
+{% block title %}{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/update/{{user.id}}">  
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            
+            <h3>Update Details</h3>  
+        </div> 
+        <div class="mb-3"> 
+            <label>User ID:</label>  
+            <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ user.id }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Name:</label>  
+            <input type="text" class="form-control" name="name" id="id_name" required maxlength="100" value="{{ user.name }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Product:</label>  
+            <input type="text" class="form-control" name="product" id="id_product" required maxlength="254" value="{{ user.product }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Price:</label>  
+            <input type="text" class="form-control" name="price" id="id_price" required maxlength="15" value="{{ user.price }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock content %}  

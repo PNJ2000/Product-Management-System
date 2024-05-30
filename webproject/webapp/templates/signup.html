@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Signup</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+     {% load static %}
+     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    
+</head>
+<body>
+    <div class="shadow-wrap">
+        <div class="form-wrap">
+            <h1>SIGNUP</h1>
+            <br>
+            <form action="signup" method="POST" name="register">
+                {% csrf_token %}
+                <label>User Name</label>
+                <input type="text" name="user_username" placeholder="Enter User Name">
+                <label>Password</label>
+                <input type="password" name="user_password" placeholder="Enter Password">
+                <label>Address</label>
+                <input type="text" name="user_add" placeholder="Enter Address">
+                <label>DOB</label>
+                <input type="text" name="user_dob" placeholder="Enter DOB">
+                <label>Phone Number</label>
+                <input type="tel" name="user_phoneno" placeholder="Enter Phone Number">
+                <button type="submit" name="register">SignUp</button>
+            </form>
+            <a href="/" class="signup-link">Login</a>
+        </div>
+    </div>
+</body>
+</html>
